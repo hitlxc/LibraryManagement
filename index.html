@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>main</title>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body>
+<header>
+<div id="title">
+	<h1>哈工大图书管理系统</h1>
+</div>
+</header>
+
+<ul id="myTab" class="nav" >
+	<li class="active"><a href="#SearchBookByAuthor" data-toggle="tab">按作者查书</a></li>
+	<li><a href="#SearchBookByName" data-toggle="tab">按书名查书</a></li>
+	<li><a href="#CreateBook" data-toggle="tab">添加新书籍</a></li>
+	<li><a href="#CreateAuthor" data-toggle="tab">添加新作者</a></li>
+	<li><a href="#DeleteBook" data-toggle="tab">删除书籍</a></li>
+	<li><a href="#DeleteAuthor" data-toggle="tab">删除作者及其作品</a></li>
+	<li><a href="#UpdateBook" data-toggle="tab">更新书籍</a></li>
+	<li><a href="#SearchAuthor" data-toggle="tab">查找作家信息</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+	<div class="tab-pane fade in active" id="SearchBookByAuthor">
+		<div id="" style="width: 350px;">
+		    <form id="form0" role="form" class="form-inline" >
+				<div class="form-group">
+		        	<input id='author_name' type="text" name="author" class="form-control" placeholder="请输入作者名">
+				</div>
+				<input id="submit0" type="button" name="submit" value="确定" class="btn btn-default">
+		    </form>
+		</div>
+		<div id="showbook1" class="show"></div>
+	</div>
+
+	<div class="tab-pane fade" id="SearchBookByName">
+		<div id="" style="width: 350px;">
+		    <form id="form1" role="form" class="form-inline" >
+				<div class="form-group">
+		        	<input id='book_name' type="text" name="book_name" class="form-control" placeholder="请输入图书名">
+				</div>
+				<input id="submit1" type="button" name="submit" value="确定" class="btn btn-default">
+		    </form>
+		</div>
+		<div id="showbook2" class="show"></div>
+	</div>
+
+	<div class="tab-pane fade" id="CreateBook">
+		<div id="showbook3" class="show">
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label for="book_name_2" class="col-sm-2 control-label">书籍题目</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="book_name_2"  placeholder="请输入书名">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="author_id" class="col-sm-2 control-label">作者id</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="author_id"  placeholder="请输入作者id,如不清楚请在左侧查找作家信息">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="publisher" class="col-sm-2 control-label">出版社</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="publisher" placeholder="请输入出版社">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="ISBN" class="col-sm-2 control-label">ISBN</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="ISBN" placeholder="请输入ISBN">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="price" class="col-sm-2 control-label">价格</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="price" placeholder="请输入价格">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="publishdate" class="col-sm-2 control-label">出版时间</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="publishdate"  placeholder="格式如2012-09-01">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="button" class="btn btn-default" id="submit2">提交</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="tab-pane fade" id="CreateAuthor">
+		<div id="showAuthor" class="show">
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label for="author_id_2" class="col-sm-2 control-label">作者id</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="author_id_2"  placeholder="请输入作者id">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="author_name_1" class="col-sm-2 control-label">作者姓名</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="author_name_1"  placeholder="请输入作者姓名">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="author_age" class="col-sm-2 control-label">年龄</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="author_age" placeholder="请输入作者年龄">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="country" class="col-sm-2 control-label">国籍</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="country" placeholder="请输入作者国籍">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="button" class="btn btn-default" id="submit3">提交</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="tab-pane fade" id="DeleteBook">
+		<div id="showdelete1" class="show">
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label for="book_name_3" class="col-sm-2 control-label">书名</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="book_name_3"  placeholder="请输入书名">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="button" class="btn btn-default" id="submit4">确定</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="tab-pane fade" id="DeleteAuthor">
+		<div id="showdelete2" class="show">
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label for="author_name_2" class="col-sm-2 control-label">作者姓名</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="author_name_2"  placeholder="请输入作者姓名">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="button" class="btn btn-default" id="submit5">确定</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="tab-pane fade" id="UpdateBook">
+		<div id="" style="width: 350px;">
+		    <form id="form2" role="form" class="form-inline" >
+				<div class="form-group">
+		        	<input id='book_name_4' type="text" name="book_name" class="form-control" placeholder="请输入要更新的书名">
+				</div>
+				<input id="submit6" type="button" name="submit6" value="确定" class="btn btn-default">
+		    </form>
+		</div>
+
+		<div id="showupdate1" class="show">
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label for="book_name_5" class="col-sm-2 control-label">书籍题目</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="book_name_5"  placeholder="请输入书名">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="author_id_3" class="col-sm-2 control-label">作者id</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="author_id_3"  placeholder="请输入作者id,如不清楚请在左侧查找作家信息">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="publisher_1" class="col-sm-2 control-label">出版社</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="publisher_1" placeholder="请输入出版社">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="ISBN_1" class="col-sm-2 control-label" >ISBN</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="ISBN_1" placeholder="请输入ISBN" disabled>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="price_1" class="col-sm-2 control-label">价格</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="price_1" placeholder="请输入价格">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="publishdate_1" class="col-sm-2 control-label">出版时间</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="publishdate_1"  placeholder="格式如2012-09-01">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="button" class="btn btn-default" id="submit7">提交</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="tab-pane fade" id="SearchAuthor">
+		<div id="" style="width: 350px;">
+		    <form id="form3" role="form" class="form-inline" >
+				<div class="form-group">
+		        	<input id='author_name_3' type="text" name="author_name" class="form-control" placeholder="请输入作者姓名">
+				</div>
+				<input id="submit8" type="button" name="submit" value="确定" class="btn btn-default">
+		    </form>
+		</div>
+		<div id="showauthor1" class="show"></div>
+	</div>
+	
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+	$('#submit0').click(function(){
+		if (!$('#author_name').val()) return;
+	    $.get('/GetBookByAuthor?author=' + $('#author_name').val(),function(result){
+	    	if(!result) {
+	    		alert("该作者不存在");
+	    		return;
+	        }//alert(result)
+	        var BooksHTML = "";
+	        result.forEach(function(e){
+				BooksHTML += '<button type="button" class="btn btn-info btn-lg do-popover" title="图书详情" data-container="body" data-toggle="popover" data-placement="right" data-content="<span>ISBN : '+e.ISBN+'<br>价格 : '+e.Price+'<br>出版社 : '+e.Publisher+'<br>出版时间 : '+e.PublishDate.substr(0,10)+'<br>作者姓名 : '+e.Name+'<br>作者国籍 : '+e.Country+'<br>作者年龄 : '+e.Age+'</span>">'+e.Title+'</button>';
+			})
+	        $('#showbook1').empty();
+	        $('#showbook1').append(BooksHTML);
+			$(".do-popover").popover({
+				placement:'right', 
+				trigger:'manual', 
+				delay: {show: 100, hide: 100}, 
+				html: true,
+	           
+        	});
+			$('body').click(function (event) {
+	            var target = $(event.target);       // 判断自己当前点击的内容
+	            if (!target.hasClass('popover')
+	                    && !target.hasClass('do-popover')
+	                    && !target.hasClass('popover-content')
+	                    && !target.hasClass('popover-title')
+	                    && !target.hasClass('arrow')) {
+	                $('.do-popover').popover('hide');      // 当点击body的非弹出框相关的内容的时候，关闭所有popover
+	            }
+	        });
+	        $(".do-popover").click(function (event) {
+	            $('.do-popover').popover('hide');          // 当点击一个按钮的时候把其他的所有内容先关闭。
+	            $(this).popover('toggle');          // 然后只把自己打开。
+	        });
+	    }) 
+	})
+
+	$('#submit1').click(function(){
+		if (!$('#book_name').val()) return;
+		$.get('/GetBookByName?book=' + $('#book_name').val(),function(result){
+			if(!result) {
+	    		alert("该书不存在");
+	    		return;
+	        }
+			$('#showbook2').empty();
+			$('#showbook2').append("ISBN : "+result[0].ISBN+"<br>价格 : "+result[0].Price+"<br>出版社"+result[0].Publisher+"<br>出版时间 : "+result[0].PublishDate.substr(0,10)+"<br>作者ID : "+result[0].AuthorID);
+		})
+	})
+
+	$('#submit2').click(function(){
+		if (!$('#book_name_2').val() || !$('#author_id').val() || !$('#publisher').val() || !$('#publishdate').val() || !$('#ISBN').val() || !$('#price').val()) {
+			alert('请填写完整信息');
+			return;
+		}  
+		var url = '/CreateBook?Title='+$('#book_name_2').val()+'&author='+$('#author_id').val()+'&publisher='+$('#publisher').val()+'&publishdate='+$('#publishdate').val()+'&ISBN='+$('#ISBN').val()+'&price='+$('#price').val();
+		$.get(url,function(result){
+			if(!result) {
+	    		alert("该书已存在，或者该作者尚未录入，请添加新作者");
+	    		return;
+	        }
+			alert('添加成功');
+		})
+	})
+
+	$('#submit3').click(function(){
+		if (!$('#author_name_1').val() || !$('#author_id_2').val() ||!$('#author_age').val() || !$('#country').val() ) {
+			alert('请填写完整信息');
+			return;
+		}  
+		var url = '/CreateAuthor?AuthorID='+$('#author_id_2').val()+'&Name='+$('#author_name_1').val()+'&Age='+$('#author_age').val()+'&Country='+$('#country').val();
+		//console.log(url)
+		$.get(url,function(result){
+			if(!result) {
+	    		alert("该id已存在");
+	    		return;
+	        }
+			alert('添加成功');
+		})
+	})
+
+	$('#submit4').click(function(){
+		if (!$('#book_name_3').val() ) {
+			alert('请填写完整信息');
+			return;
+		}  
+		var url = '/DeleteBook?Title='+$('#book_name_3').val();
+		$.get(url,function(result){
+			if(!result) {
+	    		alert("该书不存在");
+	    		return;
+	        }
+			alert('删除成功');
+		})
+	})
+
+	$('#submit5').click(function(){
+		if (!$('#author_name_2').val() ) {
+			alert('请填写完整信息');
+			return;
+		}  
+		var url = '/DeleteAuthor?Name='+$('#author_name_2').val();
+		$.get(url,function(result){
+			if(!result) {
+	    		alert("该作者不存在");
+	    		return;
+	        }
+			alert('删除成功');
+		})
+	})
+
+	$('#submit6').click(function(){
+		if (!$('#book_name_4').val()) {
+			alert('请填写完整信息');
+			return;
+		}  
+		$.get('/GetBookByName?book=' + $('#book_name_4').val(),function(result){
+			if(!result  ||  !result.length) {
+	    		alert("该书不存在");
+	    		return;
+	        }
+	        $('#book_name_5').val(result[0].Title);
+	        $('#author_id_3').val(result[0].AuthorID);
+	        $('#publisher_1').val(result[0].Publisher);
+	        $('#publishdate_1').val(result[0].PublishDate.substr(0,10));
+	        $('#ISBN_1').val(result[0].ISBN);
+	        $('#price_1').val(result[0].Price);
+		})
+	})
+
+	$('#submit7').click(function(){
+		if (!$('#book_name_5').val() || !$('#author_id_3').val() || !$('#publisher_1').val() || !$('#publishdate_1').val() || !$('#ISBN_1').val() || !$('#price_1').val()) {
+			alert('请填写完整信息');
+			return;
+		}  
+		var url = '/UpdateBook?Title='+$('#book_name_5').val()+'&author='+$('#author_id_3').val()+'&publisher='+$('#publisher_1').val()+'&publishdate='+$('#publishdate_1').val()+'&ISBN='+$('#ISBN_1').val()+'&price='+$('#price_1').val();
+		$.get(url,function(result){
+			if(!result) {
+	    		alert("更新失败");
+	    		return;
+	        }
+			alert('更新成功');
+		})
+	})
+
+
+	$('#submit8').click(function(){
+		if (!$('#author_name_3').val()) return;
+		var url = '/SearchAuthor?Name='+$('#author_name_3').val();
+		$.get(url,function(result){
+			if(!result) {
+	    		alert("该作者不存在");
+	    		return;
+	        }
+			$('#showauthor1').empty();
+			console.log(result)
+			$('#showauthor1').append("年龄 : "+result[0].Age+"<br>作者ID : "+result[0].AuthorID+"<br>国籍"+result[0].Country+"<br>姓名 : "+result[0].Name);
+		})
+
+
+		
+	})
+</script>
+</body>
+</html>

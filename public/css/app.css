@@ -1,0 +1,52 @@
+header{
+	height: 150px;
+	background-color: #CCDDFF;
+	margin-top: -30px;
+}
+
+body{
+	padding: 0px;
+	margin: 0px;
+}
+
+#title{
+	padding-top: 30px;
+	
+	text-align: center;
+}
+
+#myTab{
+	font-size: 26px;
+	width: 20%;
+	float: left;
+}
+#myTabContent{
+	width: 80%;
+	float: right;
+}
+
+.show{
+	height: 500px;
+	width: 80%;
+	background-image: linear-gradient(#e5eecc,#fff 400px);
+	padding:10px;
+	margin-top: 10px;
+}
+
+#showbook1 button{
+	
+	margin: 20px;
+}
+
+#showbook2,#showauthor1{
+	font-size: 26px;
+}
+
+.popover{
+	max-width: 500px;
+	width: 500px;
+}
+
+.popover-content{
+	font-size: 26px;
+}
